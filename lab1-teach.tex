@@ -1,0 +1,88 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[hmargin=2.5cm, vmargin=2cm]{geometry}
+\usepackage{amsthm, amssymb, mathtools, yhmath, graphicx}
+\usepackage{fontspec, type1cm, titlesec, titling, fancyhdr, tabularx}
+\usepackage{color, unicode-math, float, hhline}
+
+\usepackage[CheckSingle, CJKmath]{xeCJK}
+\usepackage{CJKulem}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{hyperref}
+\usepackage{minted}
+\usetikzlibrary{matrix}
+
+\usepackage[backend=biber, style=verbose]{biblatex}
+\bibliography{lab1.bib} 
+
+\setmainfont{Linux Libertine O}
+\setmonofont{Source Code Pro}
+\setCJKmainfont{Source Han Sans TC}
+
+\def\normalsize{\fontsize{12}{18}\selectfont}
+\def\large{\fontsize{14}{21}\selectfont}
+\def\Large{\fontsize{16}{24}\selectfont}
+\def\LARGE{\fontsize{18}{27}\selectfont}
+\def\huge{\fontsize{20}{30}\selectfont}
+
+%\titleformat{\section}{\bf\Large}{\arabic{section}}{24pt}{}
+%\titleformat{\subsection}{\large}{\arabic{subsection}.}{12pt}{}
+%\titlespacing*{\subsection}{0pt}{0pt}{1.5ex}
+
+\parindent=0pt
+
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\inpd}{\langle}{\rangle}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\setminted[sv]{
+  linenos=true, frame=lines, framesep=2mm
+}
+\setminted[bash]{
+  linenos=true, frame=lines, framesep=2mm
+}
+
+\newcommand{\img}{\mathsf{i}}
+\newcommand{\ex}{\mathsf{e}}
+\newcommand{\dD}{\mathrm{d}}
+\newcommand{\dI}{\,\mathrm{d}}
+
+\title{數位電路實驗 Lab-1 教學手冊 -- 點名器}
+\author{Team \#2}
+\begin{document}
+\maketitle
+
+\section{概述}
+有鑑於網路上 Quartus 關於 Linux 系統以及 Command line tools 的資源較少，這邊希望能將
+這些資訊整理一下，或許可以幫助一些有需要的人。
+
+因此這篇教學文件會著重在
+\begin{enumerate}
+  \item Linux 上的環境架設。
+  \item Command line tool 的使用。
+\end{enumerate}
+
+\section{安裝 Quartus}
+Linux 安裝 Quartus 直接在官方網站\footcite{QuartusDL}下載即可。 \\
+
+但注意的事 Quartus 最新版在某些 Linux Distro. 下編譯會非常慢甚至卡住。
+似乎是 Quartus 的 bug，在編譯的時候切斷網路可以部份解決問題\footcite{QuartusBugHack}(但在最後一
+步需要連上網路驗證 License 才會有輸出檔)。目前已知在 Ubuntu, Mint 下似乎不會有問題。
+
+\section{Command line tool}
+\begin{minted}{bash}
+quartus_flow --compile
+\end{minted}
+Linux 安裝 Quartus 直接在官方網站\footcite{QuartusDL}下載即可。 \\
+
+但注意的事 Quartus 最新版在某些 Linux Distro. 下編譯會非常慢甚至卡住。
+似乎是 Quartus 的 bug，在編譯的時候切斷網路可以部份解決問題\footcite{QuartusBugHack}(但在最後一
+步需要連上網路驗證 License 才會有輸出檔)。目前已知在 Ubuntu, Mint 下似乎不會有問題。
+
+
+\end{document}
+
